@@ -9,3 +9,21 @@
 	  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5); /* White shadow */
 	}
 }
+
+@keyframes borderRotate {
+	0% {
+		border-color: red;
+	}
+	25% {
+		border-color: blue;
+	}
+	50% {
+		border-color: green;
+	}
+	75% {
+		border-color: yellow;
+	}
+	100% {
+		border-color: red;
+	}
+}

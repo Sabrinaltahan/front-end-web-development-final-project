@@ -108,6 +108,71 @@ h2 {
   animation: 2s infinite alternate shadowAnimation;
 }
 
+@property --angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 90deg;
+}
+
+@property --gradX {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 50%;
+}
+
+@property --gradY {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 0%;
+}
+
+.movie-title {
+  border: .35rem solid;
+  border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) .1turn, var(--c1) .15turn, var(--c2) .25turn) 30;
+  animation: borderRotate var(--d) linear infinite forwards;
+  margin: max(1rem, 3vw);
+  padding: 3vw;
+  font-size: 3vw;
+}
+
+.movie-title:nth-child(2) {
+  border-image: radial-gradient(ellipse at var(--gradX) var(--gradY), var(--c1), var(--c1) 10%, var(--c2) 40%) 30;
+  animation: borderRadial var(--d) linear infinite forwards;
+}
+
+@keyframes borderRotate {
+  100% {
+    --angle: 420deg;
+  }
+}
+
+@keyframes borderRadial {
+  20% {
+    --gradX: 100%;
+    --gradY: 50%;
+  }
+
+  40% {
+    --gradX: 100%;
+    --gradY: 100%;
+  }
+
+  60% {
+    --gradX: 50%;
+    --gradY: 100%;
+  }
+
+  80% {
+    --gradX: 0%;
+    --gradY: 50%;
+  }
+
+  100% {
+    --gradX: 50%;
+    --gradY: 0%;
+  }
+}
+
 .rating {
   justify-content: center;
   align-items: center;

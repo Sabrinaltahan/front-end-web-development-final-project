@@ -4,7 +4,7 @@ let searchBtn = document.getElementById("search-btn");
 let result = document.getElementById("result");
 // Function to fetch movie details from OMDb API
 async function fetchMovieDetails(movieName) {
-    const url = `http://www.omdbapi.com/?t=${movieName}&apikey=${key}`;
+    const url = `https://www.omdbapi.com/?t=${movieName}&apikey=${key}`;
     try {
         const response = await fetch(url);
         const data = await response.json();
@@ -33,7 +33,7 @@ function displayMovieDetails(movieData) {
     <div class="info">
         <img src=${movieData.Poster} class="poster">
         <div>
-            <h2>${movieData.Title}</h2>
+            <h2 class='movie-title'>${movieData.Title}</h2>
             <div class="rating">
                 <img src="https://www.imageshine.in/uploads/gallery/Shining-Star-PNG.png">
                 <h4>${movieData.imdbRating}</h4>
