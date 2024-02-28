@@ -5,7 +5,7 @@ let result = document.getElementById("result");
 
 // Function to fetch movie details from OMDb API
 async function fetchMovieDetails(movieName) {
-  const url = `http://www.omdbapi.com/?t=${movieName}&apikey=${key}`;
+  const url = `https://www.omdbapi.com/?t=${movieName}&apikey=${key}`;
 
   try {
     const response = await fetch(url);
