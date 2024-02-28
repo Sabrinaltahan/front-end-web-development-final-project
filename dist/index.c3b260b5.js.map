@@ -1,0 +1,1 @@
+{"mappings":"AAAA,+CAA+C;AAC/C,MAAM;AACN,eAAe","sources":["src/key.js"],"sourcesContent":["//Enter the API key recieved on your email here\r\nkey = \"b2152aeb\";\r\nreviewAPIKey = '886462042bddf3abf6a634ad03aaeca6';\r\n"],"names":[],"version":3,"file":"index.c3b260b5.js.map","sourceRoot":"/__parcel_source_root/"}

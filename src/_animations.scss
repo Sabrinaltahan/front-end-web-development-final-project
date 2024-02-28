@@ -1,0 +1,11 @@
+@keyframes shadowAnimation {
+	0% {
+	  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5); /* White shadow */
+	}
+	50% {
+	  text-shadow: 4px 4px 8px rgba(255, 255, 255, 0.8); /* White shadow */
+	}
+	100% {
+	  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5); /* White shadow */
+	}
+}
