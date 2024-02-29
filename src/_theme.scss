@@ -1,0 +1,27 @@
+// Theme Partial
+$dark-background: #34495e;
+$dark-text: #ecf0f1;
+$light-background: #ecf0f1;
+$light-text: #2c3e50;
+
+:root {
+    --background-color: #ecf0f1;
+    --text-color: #2c3e50;
+    --d: 2500ms;
+	--angle: 90deg;
+	--gradX: 100%;
+	--gradY: 50%;
+	--c1: rgba(168, 239, 255, 1);
+	--c2: rgba(168, 239, 255, 0.1);
+}
+
+.dark {
+    --background-color: #34495e;
+    --text-color: #ecf0f1;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+}

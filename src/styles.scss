@@ -1,32 +1,115 @@
-$color_1: #ffffff;
-$color_2: #a0a0a0;
-$color_3: #fff;
-$font-family_1: "Poppins", sans-serif;
-$background-color_1: #201f28;
-$background-color_2: transparent;
-$background-color_3: #ffb92a;
-$border-color_1: #ffffff;
+// Variables
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$text-color: #333;
 
-* {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-	font-family: $font-family_1;
+
+$background-color_1: #ecf0f1;
+$background-color_2: transparent;
+
+$font-family_1: "Poppins", sans-serif;
+
+// Mixins
+@mixin button-style {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
 }
-body {
-	height: 100vh;
-	background: linear-gradient(#000000 50%, #ffb92a 50%);
+
+// Extendable selector
+.button {
+    @include button-style;
+    background-color: $primary-color;
+    color: #fff;
+
+    &:hover {
+        background-color: darken($primary-color, 10%);
+    }
 }
+
+// Container
 .container {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+// Header
+header {
+    background-color: $primary-color;
+    color: #fff;
+    padding: 20px 0;
+
+    h1 {
+        font-size: 24px;
+        margin: 0;
+    }
+
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+
+        li {
+            display: inline-block;
+            margin-left: 20px;
+
+            a {
+                color: #fff;
+                text-decoration: none;
+                transition: color 0.3s ease;
+
+                &:hover {
+                    color: #ddd;
+                }
+            }
+        }
+    }
+}
+
+// Main sections
+main {
+    padding: 0;
+
+    h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+
+    p {
+        line-height: 1.5;
+    }
+
+    .banner {
+        background-image: url('img/banner.png');
+        background-size: cover;
+        color: #fff;
+        padding: 100px 0;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+
+
+// Footer
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+
+
+.container2 {
 	font-size: 16px;
 	width: 90vw;
 	max-width: 75em;
 	padding: 3em 1.8em;
 	background-color: $background-color_1;
-	position: absolute;
-	transform: translate(-50%, -50%);
-	top: 50%;
-	left: 50%;
+    margin: auto;
 	border-radius: 0.6em;
 	box-shadow: 1.2em 2em 3em rgba(0, 0, 0, 0.2);
 	max-height: 80vh;
@@ -38,7 +121,7 @@ body {
 	}
 
 	&::-webkit-scrollbar-thumb {
-		background-color: $color_3;
+		background-color: $primary-color;
 		border-radius: 3px; 
 	}
 
@@ -47,7 +130,7 @@ body {
 	}
 
 	&::-webkit-scrollbar-thumb:hover {
-		background-color: lighten($color_3, 10%); 
+		background-color: lighten($primary-color, 10%); 
 	}
 }
 .search-container {
@@ -62,10 +145,10 @@ body {
 		background-color: $background-color_2;
 		border: 1px solid #a0a0a0;
 		padding: 0.7em;
-		color: $color_1;
+		color: $text-color;
 	
 		&:focus {
-			border-color: $border-color_1;
+			border-color: $primary-color;
 		}
 }
 
@@ -73,20 +156,20 @@ body {
 		font-size: 0.9em;
 		outline: none;
 		border-radius: 0.3em;
-		background-color: $background-color_3;
+		background-color: $secondary-color;
 		border: none;
 		cursor: pointer;
 		transition: background-color 0.3s ease, letter-spacing 0.3s ease; 
 	
 		&:hover {
 			letter-spacing: 5px; 
-			background-color: lighten($background-color_3, 50%); 
+			background-color: lighten($secondary-color, 50%); 
 		}
 	}
 }
 
 #result {
-	color: $color_1;
+	color: $text-color;
 }
 .info {
 	position: relative;
@@ -98,14 +181,15 @@ body {
 .poster {
 	width: 100%;
 	border: 4px solid;
+    border-radius: 0.3em;
 	animation: borderRotate 2s linear infinite;
 }
 
 
 
-h2 {
+.container2 h2 {
 	text-align: center;
-	font-size: 1.5em;
+	font-size: 2.5em;
 	font-weight: 600;
 	letter-spacing: 0.06em;
 	animation: shadowAnimation 2s infinite alternate;
@@ -124,22 +208,23 @@ h2 {
 	}
 	h4 {
 		display: inline-block;
-		font-size: 1.1em;
+		font-size: 2.1em;
 		font-weight: 500;
 	}
 }
 .details {
 	display: flex;
-	font-size: 0.95em;
+	font-size: 1.8em;
 	gap: 1em;
 	justify-content: center;
-	color: $color_2;
+	color: $text-color;
 	margin: 0.6em 0;
 	font-weight: 300;
 }
 .genre {
 	display: flex;
 	justify-content: space-around;
+    font-size: 2em;
 	div {
 		border: 1px solid #a0a0a0;
 		font-size: 0.75em;
@@ -148,17 +233,19 @@ h2 {
 		font-weight: 300;
 	}
 }
-h3 {
+.container2 h3 {
 	font-weight: 500;
 	margin-top: 1.2em;
-	color: $color_2;
+	color: $text-color;
+    font-size: 1.4em;
 }
-p {
+.container2 p {
 	font-size: 0.9em;
 	font-weight: 300;
 	line-height: 1.8em;
 	text-align: justify;
-	color: $color_2;
+	color: $text-color;
+    font-size: 1em;
 }
 .msg {
 	text-align: center;
@@ -168,6 +255,7 @@ p {
 	margin-bottom: 20px;
 	padding: 10px;
 	border: 1px solid;
+    border-radius: 0.3em;
 	animation: borderRotate 2s linear infinite;
 }
 .avatar {
@@ -187,8 +275,8 @@ p {
 }
 .read-more-btn {
 	display: inline-block;
-	background-color: $background-color_3;
-	color: $color_3;
+	background-color: $secondary-color;
+	color: $primary-color;
 	padding: 8px 12px;
 	border-radius: 5px;
 	text-decoration: none;
@@ -198,7 +286,7 @@ p {
 	transition: background-color 0.3s ease, width 0.3s ease; 
 
 	&:hover {
-		background-color: lighten($background-color_3, 50%); 
+		background-color: lighten($secondary-color, 50%); 
 		width: 50%; 
 		color: #000000;
 	}
@@ -206,7 +294,7 @@ p {
 
 
 @media screen and (max-width: 600px) {
-	.container {
+	.container2 {
 		font-size: 14px;
 	}
 	.info {
@@ -218,8 +306,116 @@ p {
 		max-height: 10.8em;
 	}
 	.read-more-btn {
-		width: 100%;
+		width: 75%;
 	}
 }
 
+// Featured Movie styles
+.featured-movie {
+    display: flex;
+    align-items: center;
+    margin: 20px auto;
+    max-width: 75rem;
+    padding: 20px;
+    background-color: $background-color_1;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    .featured-movie-poster {
+        width: 200px;
+        height: auto;
+        margin-right: 20px;
+    }
+
+    .featured-movie-details {
+        flex: 1;
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+    }
+}
+
+
+// Top 20 Movies styles
+.top20-movie {
+    margin: 20px auto;
+    max-width: 50rem;
+    display: flex;
+    align-items: center;
+    background-color: $background-color_1;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: changeBackgroundColor 10s infinite alternate;
+
+    .top20-movie-poster {
+        width: 120px;
+        height: auto;
+        margin-right: 20px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    .top20-movie-details {
+        flex: 1;
+        padding: 10px;
+
+        h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        p {
+            font-size: 14px;
+            color: $text-color;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+
+
+@property --angle {
+	syntax: '<angle>';
+	initial-value: 90deg;
+	inherits: true;
+}
+
+@property --gradX {
+	syntax: '<percentage>';
+	initial-value: 50%;
+	inherits: true;
+}
+
+@property --gradY {
+	syntax: '<percentage>';
+	initial-value: 0%;
+	inherits: true;
+}
+
+
+.box {
+	// font-size: 3vw;
+	margin: max(1rem, 3vw);
+	border: 0.35rem solid;
+	padding: 3vw;
+	border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+	animation: borderRotate1 var(--d) linear infinite forwards;
+}
+
+.box:nth-child(2) {
+	border-image: radial-gradient(ellipse at var(--gradX) var(--gradY), var(--c1), var(--c1) 10%, var(--c2) 40%) 30;
+	animation: borderRadial var(--d) linear infinite forwards;
+}
+
+
+
+// Include theme partial
+@import 'theme';
 @import 'animations';

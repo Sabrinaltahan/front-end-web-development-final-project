@@ -1,12 +1,12 @@
 @keyframes shadowAnimation {
 	0% {
-	  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5); /* White shadow */
+		text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
 	}
 	50% {
-	  text-shadow: 4px 4px 8px rgba(255, 255, 255, 0.8); /* White shadow */
+		text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8); 
 	}
 	100% {
-	  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5); /* White shadow */
+		text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
 	}
 }
 
@@ -25,5 +25,47 @@
 	}
 	100% {
 		border-color: red;
+	}
+}
+
+@keyframes changeBackgroundColor {
+    0% {
+        background-color: #767676; 
+    }
+    50% {
+        background-color: #a0a0a0; 
+    }
+    100% {
+        background-color: #e6e6e6; 
+    }
+}
+
+
+@keyframes borderRotate1 {
+	100% {
+		--angle: 420deg;
+	}
+}
+
+@keyframes borderRadial {
+	20% {
+		--gradX: 100%;
+		--gradY: 50%;
+	}
+	40% {
+		--gradX: 100%;
+		--gradY: 100%;
+	}
+	60% {
+		--gradX: 50%;
+		--gradY: 100%;
+	}
+	80% {
+		--gradX: 0%;
+		--gradY: 50%;
+	}
+	100% {
+		--gradX: 50%;
+		--gradY: 0%;
 	}
 }

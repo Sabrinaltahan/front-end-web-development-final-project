@@ -3,6 +3,11 @@ let movieNameRef = document.getElementById("movie-name");
 let searchBtn = document.getElementById("search-btn");
 let result = document.getElementById("result");
 
+document.getElementById('mode-toggle').addEventListener('click', function() {
+  // Toggle theme class on body
+  document.body.classList.toggle('dark');
+});
+
 // Function to fetch movie details from OMDb API
 async function fetchMovieDetails(movieName) {
   const url = `https://www.omdbapi.com/?t=${movieName}&apikey=${key}`;
@@ -122,6 +127,42 @@ async function handleSearch() {
   }
 }
 
+// Function to fetch data for the featured movie
+async function fetchFeaturedMovie() {
+  const url = `https://www.omdbapi.com/?t=featured_movie&apikey=${key}`;
+
+  try {
+      const response = await fetch(url);
+      const data = await response.json();
+
+      if (data.Response === "True") {
+          displayFeaturedMovie(data);
+      } else {
+          throw new Error(data.Error);
+      }
+  } catch (error) {
+      console.error("Error fetching featured movie:", error);
+  }
+}
+
+// Function to display the featured movie on the webpage
+function displayFeaturedMovie(movieData) {
+  const featuredMovieContainer = document.getElementById("featured-movie");
+  featuredMovieContainer.innerHTML = `
+      <div class="featured-movie">
+          <img src="${movieData.Poster}" alt="${movieData.Title}" class="featured-movie-poster">
+          <div class="featured-movie-details">
+              <h2>${movieData.Title} (Featured)</h2>
+              <p>${movieData.Plot}</p>
+              <p>Directed by: ${movieData.Director}</p>
+              <p>Starring: ${movieData.Actors}</p>
+          </div>
+      </div>
+  `;
+}
+
+
 // Add event listeners
 searchBtn.addEventListener("click", handleSearch);
 window.addEventListener("load", handleSearch);
+window.addEventListener("load", fetchFeaturedMovie);
