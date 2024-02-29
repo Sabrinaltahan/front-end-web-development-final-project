@@ -36,7 +36,7 @@ header nav ul {
 }
 
 header nav ul li {
-  margin-left: 20px;
+  margin-left: 15px;
   display: inline-block;
 }
 
@@ -297,6 +297,10 @@ footer {
   .read-more-btn {
     width: 75%;
   }
+
+  .featured-movie {
+    flex-direction: column;
+  }
 }
 
 .featured-movie {
@@ -416,6 +420,7 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   margin: 0;
+  font-family: Poppins, sans-serif;
 }
 
 @keyframes shadowAnimation {

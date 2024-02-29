@@ -7,7 +7,7 @@ $text-color: #333;
 $background-color_1: #ecf0f1;
 $background-color_2: transparent;
 
-$font-family_1: "Poppins", sans-serif;
+$font-family: "Poppins", sans-serif;
 
 // Mixins
 @mixin button-style {
@@ -54,7 +54,7 @@ header {
 
         li {
             display: inline-block;
-            margin-left: 20px;
+            margin-left: 15px;
 
             a {
                 color: #fff;
@@ -307,6 +307,9 @@ footer {
 	}
 	.read-more-btn {
 		width: 75%;
+	}
+	.featured-movie{
+		flex-direction: column;
 	}
 }
 
